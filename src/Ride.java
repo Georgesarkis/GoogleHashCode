@@ -1,62 +1,76 @@
 
 public class Ride {
 	
-	private int startX;
-	private int startY;
-	private int endX;
-	private int endY;
+	private Point start;
+	private Point end;
 	private int earliestStart;
 	private int latestFinish;
+	private int spareTime;
 	
 	
 	public Ride(int startX, int startY, int endX, int endY, int earliestStart, int latestFinish) {
 		super();
-		this.startX = startX;
-		this.startY = startY;
-		this.endX = endX;
-		this.endY = endY;
+		this.start.setX(startX);
+		this.start.setY(startY);
+		this.end.setX(endX);
+		this.end.setY(endY);
 		this.earliestStart = earliestStart;
 		this.latestFinish = latestFinish;
+		this.spareTime = latestFinish - earliestStart - distanceBetween(start, end);
 	}
 
+	public Ride() {
+		
+	}
+	public Point getStart() {
+		return this.start;
+	}
+	
+	public Point getEnd() {
+		return this.end;
+	}
 
+	public int distanceBetween(Point a, Point b) {
+		return Math.abs(a.getX() - b.getX()) + Math.abs(a.getY() - b.getY());
+	}
+	
 	public int getStartX() {
-		return startX;
+		return start.getX();
 	}
 
 
 	public void setStartX(int startX) {
-		this.startX = startX;
+		this.start.setX(startX);
 	}
 
 
 	public int getStartY() {
-		return startY;
+		return start.getY();
 	}
 
 
 	public void setStartY(int startY) {
-		this.startY = startY;
+		this.start.setY(startY);
 	}
 
 
 	public int getEndX() {
-		return endX;
+		return end.getX();
 	}
 
 
 	public void setEndX(int endX) {
-		this.endX = endX;
+		this.end.setX(endX);
 	}
 
 
 	public int getEndY() {
-		return endY;
+		return end.getY();
 	}
 
 
 	public void setEndY(int endY) {
-		this.endY = endY;
+		this.end.setY(endY);
 	}
 
 
@@ -83,3 +97,4 @@ public class Ride {
 	
 
 }
+
