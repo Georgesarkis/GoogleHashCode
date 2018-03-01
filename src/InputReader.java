@@ -19,49 +19,59 @@ public static void fetch() {
     try {
         br = new BufferedReader(new FileReader("resources\\a_example.in"));
         String line;
-        String output ="";
+		String rows = "";
+		String columns = "";
+		String vehicles = "";
+		String rides = "";
+		String bonus = "";
+		String steps = "";
         int lineCount = 0;
         while ((line = br.readLine()) != null) {
         		lineCount++;
         		if(lineCount == 1) {
         			int counter = 0;
-        			String rows = 0;
-        			String columns = 0;
-        			String vehicles = 0;
-        			String rides = 0;
-        			String bonus = 0;
-        			String steps = 0;
         			for(int i = 0; i < line.length(); i++) {
         				if(line.charAt(i) == ' ') {
         					counter++;
         				}
         				switch(counter) {
-        				case 0:  { // rows
-        					rows += line.charAt(i)
+	        				case 0:  { // rows
+	        					rows += line.charAt(i);
+	        					break;
+	        				}
+	        				case 1: {
+	        					columns += line.charAt(i);
+	        					break;
+	        				}
+	        				case 2: {
+	        					vehicles += line.charAt(i);
+	        					break;
+	        				}
+	        				case 3: {
+	        					rides += line.charAt(i);
+	        					break;
+	        				}
+	        				case 4: {
+	        					bonus += line.charAt(i);
+	        					break;
+	        				}
+	        				case 5: {
+	        					steps += line.charAt(i);
+	        					break;
+	        				}
         				}
-        				case 1: {
-        					columns += line.charAt(i);
-        				}
-        				case 2: {
-        					vehicles += line.charAt(i);
-        				}
-        				case 3: {
-        					rides += line.charAt(i);
-        				}
-        				case 4: {
-        					line.charAt(i);
-        				}
-        				
-        				
-        				}
-        
+       
         			}
+        			System.out.println("Rows: " + rows + "\nColumns: " + columns + "\nVehicles: " + vehicles + "\nRides: " + rides + "\nBonus: " + bonus + "\nSteps: " + steps);
+        			
+        		}
+        		else { // Rides
         			
         		}
         		
         }
        
-        //System.out.println(output);
+        TheTown town = new TheTown(Integer.parseInt(rows), Integer.parseInt(columns), Integer.parseInt(vehicles), Integer.parseInt(rides), Integer.parseInt(bonus), Integer.parseInt(steps), null);
         
     } catch (IOException e) { e.printStackTrace(); } 
     
