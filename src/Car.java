@@ -3,11 +3,11 @@ public class Car {
 
 	private Point position;
 	private int availableTurn;
+	private Ride currentRide;
 	
-	
-	
-	public Car(Point position, int availableTurn) {
+	public Car(Point position, int availableTurn, Ride currentRide) {
 		super();
+		this.setCurrentRide(currentRide);
 		this.position = position;
 		this.availableTurn = availableTurn;
 	}
@@ -30,6 +30,15 @@ public class Car {
 	public void setAvailableTurn(int availableTurn) {
 		this.availableTurn = availableTurn;
 	}
+
+	public Ride getCurrentRide() {
+		return currentRide;
+	}
+
+	public void setCurrentRide(Ride currentRide) {
+		this.currentRide = currentRide;
+	}
 	
 	
 }
+
